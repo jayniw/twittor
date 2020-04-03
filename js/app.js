@@ -1,6 +1,16 @@
+//verificar el url para determinar si es desa o no
+
+var url = window.location.url;
+var swLocation = '/twittor/sw.js';
+
+
 //registrar SW
 if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('/sw.js');
+
+    if (url.includes('localhost')) {
+        swLocation = '/sw.js';
+    }
+    navigator.serviceWorker.register(swLocation);
 }
 
 // Referencias de jQuery
