@@ -1,13 +1,13 @@
 //verificar el url para determinar si es desa o no
 
-var url = window.location.url;
+var url = window.location.href;
 var swLocation = '/twittor/sw.js';
 
 
 //registrar SW
 if (navigator.serviceWorker) {
 
-    if (url.includes('localhost')) {
+    if (url.includes('localhost') || url.includes('127.0.0.1')) {
         swLocation = '/sw.js';
     }
     navigator.serviceWorker.register(swLocation);
